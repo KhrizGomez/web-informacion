@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>De Cartar a Pixeles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-fuerte: #e30044;
+      --rosa-claro: #ff34a3;
+      --amarillo-pastel: #f8d851;
+      --naranja-coral: #f78a6d;
+      --blanco: #fff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Fredoka', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--amarillo-pastel) 100%);
+      color: var(--rosa-fuerte);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(90deg, var(--rosa-fuerte) 60%, var(--naranja-coral) 100%);
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      position: relative;
+    }
+    .logo-kawaii {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .logo-kawaii .sobre-cara {
+      width: 64px;
+      height: 64px;
+      background: var(--blanco);
+      border: 4px solid var(--rosa-fuerte);
+      border-radius: 16px 16px 24px 24px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 4px 16px #e3004433;
+    }
+    .logo-kawaii .sobre-cara::after {
+      content: '😊';
+      position: absolute;
+      left: 0; right: 0; top: 18px;
+      font-size: 1.5rem;
+      text-align: center;
+      color: var(--rosa-claro);
+      filter: drop-shadow(0 1px 0 var(--amarillo-pastel));
+    }
+    .logo-kawaii .nombre {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--blanco);
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #e3004477;
+    }
+    .subtitulo {
+      font-size: 1.1rem;
+      color: var(--amarillo-pastel);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 4px #e3004477;
+    }
+    .sticker {
+      display: inline-block;
+      background: var(--amarillo-pastel);
+      color: var(--rosa-fuerte);
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 1.5rem;
+      padding: 0.3rem 1.2rem;
+      margin: 0.5rem 0.3rem;
+      box-shadow: 0 2px 8px #f8d85155;
+      border: 2px dashed var(--rosa-claro);
+      transform: rotate(-3deg);
+      position: relative;
+      z-index: 2;
+    }
+    .sticker.sticker2 {
+      background: var(--naranja-coral);
+      color: var(--blanco);
+      border-color: var(--amarillo-pastel);
+      transform: rotate(2deg);
+    }
+    .sticker.sticker3 {
+      background: var(--rosa-claro);
+      color: var(--blanco);
+      border-color: var(--naranja-coral);
+      transform: rotate(-1deg);
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      padding: 2rem 1rem 1rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section {
+      background: linear-gradient(120deg, var(--blanco) 80%, #ff34a320 100%);
+      border-radius: 2rem;
+      box-shadow: 0 4px 24px #e3004411;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    section h2 {
+      font-size: 1.7rem;
+      color: var(--rosa-fuerte);
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+    }
+    section p {
+      font-size: 1.15rem;
+      color: var(--rosa-fuerte);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+      font-weight: 500;
+      text-align: justify;
+    }
+    .iconos-cute {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .iconos-cute span {
+      background: var(--amarillo-pastel);
+      border-radius: 1.2rem;
+      padding: 0.4rem 0.8rem;
+      box-shadow: 0 2px 8px #f8d85133;
+      border: 2px solid var(--rosa-claro);
+      margin-right: 0.2rem;
+      margin-bottom: 0.2rem;
+      transition: transform 0.2s;
+    }
+    .iconos-cute span:hover {
+      transform: scale(1.15) rotate(-6deg);
+      background: var(--rosa-claro);
+      color: var(--blanco);
+      border-color: var(--amarillo-pastel);
+    }
+    footer {
+      background: linear-gradient(90deg, var(--naranja-coral) 60%, var(--rosa-fuerte) 100%);
+      padding: 2rem 1rem 1.5rem 1rem;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      text-align: center;
+      color: var(--blanco);
+      margin-top: 2rem;
+      box-shadow: 0 -4px 24px #e3004411;
+    }
+    @media (max-width: 700px) {
+      main { padding: 1rem 0.2rem; }
+      section { padding: 1.2rem 0.7rem; }
+      header, footer { padding: 1.2rem 0.5rem; }
+      .logo-kawaii .nombre { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-kawaii">
+      <div class="sobre-cara">✉</div>
+      <span class="nombre">DE CARTAS A PIXELES</span>
+    </div>
+    <div class="subtitulo">FCCDD - Carrera de Software</div>
+    <div>
+      <span class="sticker">¡Qué tiempos!</span>
+      <span class="sticker sticker2">Todo evoluciona</span>
+      <span class="sticker sticker3">¡Conecta con el 💗!</span>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>✉ Antes: Cartas con corazón</h2>
+      <p>
+        Antes del desarrollo de las tecnologías digitales, la correspondencia escrita era el principal medio de comunicación a distancia. Las cartas manuscritas permitían intercambiar información personal, académica y profesional, aunque el proceso dependía de servicios postales y podía tomar varios días o semanas. Este método ofrecía privacidad y la posibilidad de conservar registros físicos, pero estaba limitado por la logística y los tiempos de entrega.
+      </p>
+      <div class="iconos-cute">
+        <span>✉️</span>
+        <span>💌</span>
+        <span>📬</span>
+        <span>✍️</span>
+        <span>💖</span>
+        <span>🖋️</span>
+        <span>🤲</span>
+      </div>
+    </section>
+    <section>
+      <h2>💻 Ahora: Correos en segundos</h2>
+      <p>
+        En la actualidad, el correo electrónico y otras plataformas digitales han transformado la comunicación. Los mensajes pueden enviarse y recibirse en tiempo real, facilitando la interacción inmediata tanto a nivel personal como profesional. Además, es posible adjuntar documentos, imágenes y enlaces, optimizando la gestión de información y permitiendo la comunicación global desde cualquier dispositivo conectado a Internet.
+      </p>
+      <div class="iconos-cute">
+        <span>💻</span>
+        <span>📱</span>
+        <span>📩</span>
+        <span>⚡</span>
+        <span>🔔</span>
+        <span>😊</span>
+        <span>🌈</span>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem;">
+      <div style="background: #fff7fa; border-radius: 1.5rem; box-shadow: 0 2px 16px #ff34a344; padding: 1.2rem 2rem; min-width: 220px; max-width: 320px;">
+        <h3 style="color: #e30044; margin-top:0; font-size:1.2rem;">✉ Antes</h3>
+        <ul style="color: #e30044; font-size:1rem; padding-left:1.2em;">
+          <li>Cartas escritas a mano ✍️</li>
+          <li>Esperar días para recibir respuesta ⏳</li>
+          <li>Emoción al abrir un sobre 💌</li>
+          <li>Buzones y estampillas 📬</li>
+          <li>Recuerdos físicos y personales 💖</li>
+        </ul>
+      </div>
+      <div style="background: #fff7fa; border-radius: 1.5rem; box-shadow: 0 2px 16px #ff34a344; padding: 1.2rem 2rem; min-width: 220px; max-width: 320px;">
+        <h3 style="color: #e30044; margin-top:0; font-size:1.2rem;">💻 Ahora</h3>
+        <ul style="color: #e30044; font-size:1rem; padding-left:1.2em;">
+          <li>Correos electrónicos instantáneos ⚡</li>
+          <li>Respuestas en segundos 📱</li>
+          <li>Notificaciones y emojis 😊📩</li>
+          <li>Acceso desde cualquier lugar 🌐</li>
+          <li>Comunicación rápida y global 🌎</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:1.2rem;font-size:0.95rem;opacity:0.7;">
+      &copy; 2025 DE CARTAS A PIXELES. FCCDD - Carrera de Software. Hecho con 💗 y nostalgia.
+    </div>
+  </footer>
+</body>
+</html>
